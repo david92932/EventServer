@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%=event.eventName%></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+
+<h1>EVENT: <%=event.eventName%></h1>
+
+<h2>Location: <%=event.location%></h2>
+
+<h3>Date: date</h3>
+
+<br>
+<div><strong>Organizer: </strong><%=event.organizerName%></div>
+<br>
+<div><strong>Number Attending: </strong> <%=event.numberAttending%></div>
+<br>
+<div><strong>People Attending: </strong> </div>
+
+<br>
+<div><strong>Additional Comments:</strong> <%=event.comments%></div>
+
+<form action = "/events/attending" method = "POST" >
+    <input type = "hidden" name = "eventID" value = "<%=event._id%>">
+    <input type = "submit" class = "btn btn-success" value = "I'M IN!">
+
+    <a class="btn btn-primary" href="/events/">Return to Events</a>
+</form>
+
+
+
+
+<!-- get list of people attending
+<div>Attending:
+
+    </ul>
+</div> -->
+
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Events</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel='stylesheet' href='../stylesheets/style.css'/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+</head>
+<body>
+<h1>Upcoming Events</h1>
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <ul class="navbar-nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="/events/">EVENTS</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/events/addEvent">ADD AN EVENT</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/auth/login">SIGN-IN</a>
+        </li>
+        <li class="nav_item">
+            <a class="nav-link" href="/profile">PROFILE</a>
+        </li>
+
+    </ul>
+</nav>
+
+<div>
+
+    <!--table-hover-->
+    <table class="table container-fluid">
+        <thead>
+        <tr>
+            <th scope="col">Attending</th>
+            <th scope="col">Event</th>
+            <th scope="col">Location</th>
+            <th scope="col">Organizer</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+
+            <% for(var i=0; i < events.length; i++) {%>
+
+
+                    <!--onclick="document.getElementById('<%=events[i].id%>>').submit();-->
+                <tr>
+                    <td scope="row"><%= events[i].numberAttending %></td>
+                    <td><%= events[i].eventName %> </td>
+                    <td><%= events[i].location %></td>
+                    <td><%= events[i].organizerName %></td>
+                    <td>
+                        <form class = "inlineButton" action = "/events/attending"  method= "POST">
+                            <input type = "hidden" name = "eventID" value = <%=events[i]._id%>>
+                            <input type="submit" class="btn btn-success" value = "I'M IN!" >
+                        </form>
+
+                        <form class = "inlineButton" action = "/events/details"  method= "POST">
+                            <input type = "hidden" name = "selectedEventID" value = <%=events[i]._id%>>
+                            <input type="submit" class="btn btn-primary" value = "Event Details" >
+                        </form>
+
+                    </td>
+                </tr>
+            <% } %>
+                </form>
+
+        </tbody>
+    </table>
+
+</div>
+
+<div class = "container-fluid">
+    <div class="row">
+        <div class="col-lg-8, col-xs-12"><%=events[0].eventName%></div>
+        <div class="col-lg-4, col-xs-6"><%=events[0].numberAttending%></div>
+
+    </div>
+</div>
+
+
+</body>
+</html>

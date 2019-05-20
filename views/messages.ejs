@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Messages</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<h1>All Messages</h1>
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="/events/">EVENTS</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/events/addEvent">ADD AN EVENT</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/auth/login">SIGN-IN</a>
+        </li>
+        <li class="nav_item">
+            <a class="nav-link" href="/profile">PROFILE</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="/messages/allMessages">MESSAGES</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+<table class="table container-fluid">
+    <thead>
+    <tr>
+        <th scope = "col"></th>
+        <th scope="col">Subject</th>
+        <th scope="col">Sender</th>
+        <th scope="col"></th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <% for(var i=0; i < messages.length; i++) {%>
+        <!--<form id="form-id" method="post" action="/events/details">
+        <input type="hidden" name="selectedEventID" value = events[i]._id>-->
+
+        <!--onclick="document.getElementById('form-id').submit();"-->
+        <tr>
+            <td scope="row"><%= messages[i].read %></td>
+            <td><%= messages[i].subject %> </td>
+            <td><%= messages[i].sender %></td>
+            <td>
+                <form method="post" action ="/messages/messageDetails">
+                    <input type="hidden" name="messageID" value = <%=messages[i]._id%>>
+                    <input type="submit" class="btn btn-primary" value = "Message Details" >
+                </form>
+            </td>
+
+        </tr>
+    <% } %>
+
+    </tbody>
+</table>
+
+</body>
+</html>

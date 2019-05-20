@@ -1,0 +1,22 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #B3F8FF;
+}
+
+h1{
+
+}
+
+a {
+  color: #00B7FF;
+}
+
+.center{
+  padding-top: 50px;
+  text-align: center;
+}
+
+.inlineButton {
+  display: inline-block;
+}

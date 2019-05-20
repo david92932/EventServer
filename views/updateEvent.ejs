@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<h1>Update <%=event.eventName%></h1>
+
+<form class="form-horizontal" action="/events/update" method = "POST">
+
+    <input type = "hidden" name = "updateID" value = <%=event._id%>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="eventName">Event Name:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="eventName" name = "eventName" value = "<%=event.eventName%>">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="location">Location:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="location" name = "location" placeholder="Enter Location" value = "<%=event.location%>">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="date">Date:</label>
+        <div class="col-sm-10">
+            <input type="datetime-local" class="form-control" id="date" name = "date" value = "<%=event.date%>">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="comments">Comments:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="comments" name = "comments" placeholder="Additional Comments" value = "<%=event.comments%>">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+
+        </div>
+    </div>
+
+    <div>
+
+        <input type="submit" class="btn btn-secondary" value = "UPDATE">
+        <a class="btn btn-danger" href="/profile/">CANCEL</a>
+
+    </div>
+
+</form>
+
+</body>
+</html>
